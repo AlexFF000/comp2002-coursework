@@ -1,0 +1,17 @@
+# Calculate best case for short cities
+import itertools
+permutations = list(itertools.permutations([0, 1, 2, 3, 4]))
+bestDistance = -1
+bestPermutation = []
+for p in permutations:
+    distance = totalDistance(distances_short, p)
+    if (distance < bestDistance or bestDistance == -1):
+        bestDistance = distance
+        bestPermutation = p
+bestCities = []
+for i in bestPermutation:
+    bestCities.append(cities_short[i])
+print(f"Best route is {bestPermutation} ({bestCities}) with distance of {bestDistance}")
+
+
+Best route is (1, 2, 4, 0, 3) (['Bristol', 'London', 'Edinburgh', 'Plymouth', 'Cardiff']) with distance of 726
